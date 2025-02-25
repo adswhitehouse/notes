@@ -2,7 +2,8 @@
 let createNotesBtn = document.querySelector(".jsCreateNotesButton");
 let notesContainer = document.querySelector(".jsNotesContainer");
 
-function createNote() {
+// Create note on create notes button click
+createNotesBtn.addEventListener("click", () => {
   // Create note elements
   let textContainer = document.createElement("div");
   let text = document.createElement("p");
@@ -22,25 +23,10 @@ function createNote() {
   deleteNoteBtn.appendChild(deleteNoteImg);
   textContainer.append(text, deleteNoteBtn);
   notesContainer.appendChild(textContainer);
-
-  deleteNote();
-}
-
-// Create note on create notes button click
-createNotesBtn.addEventListener("click", () => {
-  createNote();
 });
 
-// Delete relative note on delete button click
-function deleteNote() {
-  let deleteNoteBtns = document.querySelectorAll(".jsDeleteNote");
-  deleteNoteBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      btn.parentElement.remove();
-    });
-  });
-}
-
-// function saveToLocalStorage() {
-//   localStorage.setItem("notes", notesContainer.innerHTML)
-// }
+notesContainer.addEventListener("click", (e) => {
+  if (e.target.tagName === "IMG") {
+    e.target.parentElement.parentElement.remove();
+  }
+});
