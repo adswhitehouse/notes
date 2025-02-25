@@ -4,23 +4,24 @@ let notesContainer = document.querySelector(".jsNotesContainer");
 
 function createNote() {
   // Create note elements
-  let textareaContainer = document.createElement("div");
-  let textarea = document.createElement("textarea");
+  let textContainer = document.createElement("div");
+  let text = document.createElement("p");
   let deleteNoteBtn = document.createElement("button");
   let deleteNoteImg = document.createElement("img");
 
   // Style elements
-  textareaContainer.classList.add("textarea-container");
-  textarea.classList.add("note-text");
+  textContainer.classList.add("textarea-container");
+  text.classList.add("note-text");
   deleteNoteBtn.classList.add("delete-note", "jsDeleteNote");
 
-  // Add img element src
+  // Add attributes
   deleteNoteImg.setAttribute("src", "./images/delete.png");
+  text.setAttribute("contenteditable", "true");
 
   // Append elements
   deleteNoteBtn.appendChild(deleteNoteImg);
-  textareaContainer.append(textarea, deleteNoteBtn);
-  notesContainer.appendChild(textareaContainer);
+  textContainer.append(text, deleteNoteBtn);
+  notesContainer.appendChild(textContainer);
 
   deleteNote();
 }
