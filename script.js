@@ -1,5 +1,5 @@
 // Variables
-let createNotesButton = document.querySelector(".jsCreateNotesButton");
+let createNotesBtn = document.querySelector(".jsCreateNotesButton");
 let notesContainer = document.querySelector(".jsNotesContainer");
 
 function createNote() {
@@ -27,7 +27,7 @@ function createNote() {
 }
 
 // Create note on create notes button click
-createNotesButton.addEventListener("click", () => {
+createNotesBtn.addEventListener("click", () => {
   createNote();
 });
 
@@ -40,3 +40,7 @@ function deleteNote() {
     });
   });
 }
+
+// function saveToLocalStorage() {
+//   localStorage.setItem("notes", notesContainer.innerHTML)
+// }
